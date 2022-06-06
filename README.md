@@ -2,6 +2,9 @@
 st terminal config steps in **archlinux**.
 ---
 
+## Screenshot
+![](/screenshot/st.png)
+
 ## Notice 
 It is my first time to install `st`. So the steps may be a little messy.
 </br>ALSO, I don't know HOW to set **Desktop entry** for `st` in a DE because I use [Awesome WM](https://awesomewm.org/).
@@ -22,14 +25,12 @@ It is my first time to install `st`. So the steps may be a little messy.
 </br>Run `rm -rf config.h && sudo make clean install`.
 
 ## Steps
----
 First, `git clone https://git.suckless.org/st`.  (Assuming you do this in `~`.)
 </br>Then, edit `config.mk`.
 
 ```
 cd st
 vim config.mk
-
 ```
 
 </br>edit `X11INC = /usr/X11R6/include` → `X11INC = /usr/include/X11` 
@@ -62,7 +63,6 @@ For opacity:
 ```
 /* bg opacity */
  float alpha = 0.5;
-
 ```
 
 For scroll: 
@@ -109,7 +109,9 @@ For scroll:
 ```
 After patching, run `rm -rf config.h && sudo make clean install`.
 
-Also, you can check my `config.def.h` if you still have no idea.
+Also, you can check my [config.def.h](https://github.com/tkuwill/My-st-config/blob/main/config.def.h) if you still have no idea.
+
+
 
 ---
 ## Thanks
