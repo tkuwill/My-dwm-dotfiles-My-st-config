@@ -28,7 +28,7 @@ It is my first time to install `st`. So the steps may be a little messy.
 First, `git clone https://git.suckless.org/st`.  (Assuming you do this in `~`.)
 </br>Then, edit `config.mk`.
 
-```
+```sh
 cd st
 vim config.mk
 ```
@@ -60,14 +60,14 @@ You can use browser's `Save Link As` to save them in your `~/st/patch`.
 
 For opacity:(value you can change based on your preference.)
 
-```
+```cpp
 /* bg opacity */
  float alpha = 0.5;
 ```
 
 For scroll: 
 
-```
+```cpp
          ...
 
  static MouseShortcut mshortcuts[] = {
@@ -95,7 +95,7 @@ For scroll:
 
 ### Steps for patch
 
-```
+```sh
  cd st
  
  patch < patch/st-alpha-20220206-0.8.5.diff
