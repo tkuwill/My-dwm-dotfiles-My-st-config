@@ -58,7 +58,7 @@ You can use browser's `Save Link As` to save them in your `~/st/patch`.
 
 ### Remember to add this in your `config.def.h`.
 
-For opacity:
+For opacity:(value you can change based on your preference.)
 
 ```
 /* bg opacity */
