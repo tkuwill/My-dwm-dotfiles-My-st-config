@@ -1,14 +1,19 @@
-# My-st-config
-st terminal config steps in **archlinux**.
----
+# My-st-config & dwm & dmenu
+
+st terminal config steps in **archlinux**. (And dwm & dmenu's config)
+--t
 
 ## Screenshot
-![](/screenshot/st.png)
 
+![](/screenshot/st2.png)
+
+![](/screenshot/dwm.png)
+
+![](/screenshot/st.png)
 ## Notice 
 It is my first time to install `st`. So the steps may be a little messy.
-</br>ALSO, I don't know HOW to set **Desktop entry** for `st` in a DE because I use [Awesome WM](https://awesomewm.org/).
 </br>PLUS, I don't know HOW to install `st`from `AUR`. If you want to install st from AUR, check [st-Archwiki](https://wiki.archlinux.org/title/st).
+</br>I also put my dwm and dmenu's configs here. Have a look !
 </br>**Maybe you can also do more search if you are interested in this**.
 
 
