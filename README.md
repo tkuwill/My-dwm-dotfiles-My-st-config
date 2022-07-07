@@ -1,7 +1,7 @@
 # My-st-config & dwm & dmenu
 
 st terminal config steps in **archlinux**. (And dwm & dmenu's config)
---t
+
 
 ## Screenshot
 
