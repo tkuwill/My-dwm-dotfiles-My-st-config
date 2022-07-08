@@ -66,11 +66,24 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
+#include <X11/XF86keysym.h>
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *rofidruncmd[] = {"rofi", "-show", "drun", NULL};
+/*volume control */
+static const char *upvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "+3%",
+                              NULL};
+static const char *downvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "-3%",
+                                NULL};
+static const char *mutevol[] = {"/usr/bin/pactl", "set-sink-mute", "0",
+                                "toggle", NULL};
+/* Control Media Players */
+static const char *next[] = {"playerctl", "next", NULL};
+static const char *prev[] = {"playerctl", "previous", NULL};
+static const char *play[] = {"playerctl", "play-pause", NULL};
+
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -109,6 +122,14 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+    /*volume control keys */
+    {0, XF86XK_AudioMute, spawn, {.v = mutevol}},
+    {0, XF86XK_AudioLowerVolume, spawn, {.v = downvol}},
+    {0, XF86XK_AudioRaiseVolume, spawn, {.v = upvol}},
+    /*media control keys */
+    { 0, XF86XK_AudioPlay, spawn, {.v = play }},
+    { 0, XF86XK_AudioNext, spawn, {.v = next }},
+    { 0, XF86XK_AudioPrev, spawn, {.v = prev }},
 };
 
 /* button definitions */
