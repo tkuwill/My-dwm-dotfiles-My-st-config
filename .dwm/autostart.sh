@@ -6,7 +6,8 @@ thunderbird &
 picom &
 copyq &
 feh --bg-fill /home/will/Pictures/DesktopBackground/wallpaperdwm.jpg &
-
+/usr/bin/dunst &
+/home/will/.dwm/lowbatremind.sh &
 # xsetroot for dwm
 dwm_date () {
     date '+%Y年%m月%d日(%a)%H:%M'
@@ -74,3 +75,4 @@ do
     xsetroot -name "$(dwm_alsa)|$(dwm_date)|$(dwm_battery)|$(bat_time)-remaining"
     sleep 1 
 done
+
