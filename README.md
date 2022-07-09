@@ -4,7 +4,7 @@ st terminal config steps in **archlinux**. (And dwm & dmenu's config)
 
 
 ## Screenshot
-
+a
 ![](/screenshot/st2.png)
 
 ![](/screenshot/dwm.png)
