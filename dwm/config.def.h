@@ -71,7 +71,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *rofidruncmd[] = {"rofi", "-show", "drun", NULL};
+static const char *rofidruncmd[] = {"rofi", "-show", "drun", "-config", "/home/will/.config/rofi/Paper.rasi", NULL};
 /*volume control */
 static const char *upvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "+3%",
                               NULL};
