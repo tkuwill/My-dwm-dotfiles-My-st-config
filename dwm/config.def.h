@@ -72,6 +72,10 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *rofidruncmd[] = {"rofi", "-show", "drun", "-config", "/home/will/.config/rofi/Paper.rasi", NULL};
+
+/* powermenu */
+static const char *powermenu[] = {"/home/will/.scripts/dmenu/powermenu.sh", NULL};
+
 /*volume control */
 static const char *upvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "+3%",
                               NULL};
@@ -87,6 +91,7 @@ static const char *play[] = {"playerctl", "play-pause", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = powermenu } },
     { MODKEY,                       XK_s,      spawn,          {.v = rofidruncmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
