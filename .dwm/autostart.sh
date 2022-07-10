@@ -3,6 +3,7 @@
 arandr &
 xfce4-power-manager &
 thunderbird &
+spectacle &
 picom &
 copyq &
 feh --bg-fill /home/will/Pictures/DesktopBackground/wallpaperdwm.jpg &
