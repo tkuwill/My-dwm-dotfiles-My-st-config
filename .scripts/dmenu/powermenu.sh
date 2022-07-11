@@ -2,7 +2,7 @@
 
 function powermenu {
     options="Cancel\nLock\nSuspend\nShutdown\nRestart"
-    selected=$(echo -e $options | dmenu)
+    selected=$(echo -e $options | dmenu -i -p "What do you want to do ?")
     if [[ $selected = "Shutdown" ]]; then 
         poweroff
     elif [[ $selected = "Restart" ]]; then 
