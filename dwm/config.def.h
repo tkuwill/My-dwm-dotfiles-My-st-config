@@ -76,6 +76,9 @@ static const char *rofidruncmd[] = {"rofi", "-show", "drun", "-config", "/home/w
 /* powermenu */
 static const char *powermenu[] = {"/home/will/.scripts/dmenu/powermenu.sh", NULL};
 
+/* calendar */
+static const char *calendar[] = {"/home/will/.scripts/dmenu/calendar.sh", NULL};
+
 /*volume control */
 static const char *upvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "+3%",
                               NULL};
@@ -91,6 +94,7 @@ static const char *play[] = {"playerctl", "play-pause", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = calendar } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = powermenu } },
     { MODKEY,                       XK_s,      spawn,          {.v = rofidruncmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
