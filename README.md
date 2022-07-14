@@ -1,9 +1,11 @@
 # My-st-config & dwm & dmenu
 
 st terminal config steps in **archlinux**. (And dwm & dmenu's config)
-
+</br>I also put my tmux's config and .zshrc here.
 
 ## Screenshot
+
+![](/screenshot/tmux.png)
 
 ![](/screenshot/st2.png)
 
