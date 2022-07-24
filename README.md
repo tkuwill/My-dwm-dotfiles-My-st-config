@@ -1,4 +1,4 @@
-# My-st-config & dwm & dmenu
+# My-st-config & dwm & dmenu & tmux & some scripts of dmenu
 
 st terminal config steps in **archlinux**. (And dwm & dmenu's config)
 </br>I also put my tmux's config and .zshrc here.
@@ -9,6 +9,8 @@ st terminal config steps in **archlinux**. (And dwm & dmenu's config)
 
 I added a volume notifications with dunst in dwm.
 https://user-images.githubusercontent.com/86701769/180633336-3953fb9c-8d06-452d-9e00-46902307df8a.mp4
+
+![](/screenshot/donotdisturb.png)
 
 ![](/screenshot/tmux.png)
 
@@ -21,6 +23,7 @@ https://user-images.githubusercontent.com/86701769/180633336-3953fb9c-8d06-452d-
 It is my first time to install `st`. So the steps may be a little messy.
 </br>PLUS, I don't know HOW to install `st`from `AUR`. If you want to install st from AUR, check [st-Archwiki](https://wiki.archlinux.org/title/st).
 </br>I also put my dwm and dmenu's configs here. Have a look !
+</br>Also some dmenu's scripts here. Have a look !
 </br>**Maybe you can also do more search if you are interested in this**.
 
 
@@ -60,6 +63,9 @@ By editing `config.def.h` you can config `st`.
 
 Patches I use :
 - [st-alpha-20220206-0.8.5.diff](https://st.suckless.org/patches/alpha/st-alpha-20220206-0.8.5.diff)
+- [st-anysize-0.8.4.diff](https://st.suckless.org/patches/anysize/st-anysize-0.8.4.diff)
+- [st-blinking_cursor-20211116-2f6e597.diff](https://st.suckless.org/patches/blinking_cursor/st-blinking_cursor-20211116-2f6e597.diff)
+- [st-delkey-20201112-4ef0cbd.diff](https://st.suckless.org/patches/delkey/st-delkey-20201112-4ef0cbd.diff)
 - [st-scrollback-0.8.5.diff](https://st.suckless.org/patches/scrollback/st-scrollback-0.8.5.diff)
 - [st-scrollback-mouse-0.8.2.diff](https://st.suckless.org/patches/scrollback/st-scrollback-mouse-0.8.2.diff)
 - [st-w3m-0.8.3.diff](https://st.suckless.org/patches/w3m/st-w3m-0.8.3.diff)
