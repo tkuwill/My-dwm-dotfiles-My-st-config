@@ -84,6 +84,9 @@ static const char *powermenu[] = {"/home/will/.scripts/dmenu/powermenu.sh", NULL
 /* calendar */
 static const char *calendar[] = {"/home/will/.scripts/dmenu/calendar.sh", NULL};
 
+/* notification mode */
+static const char *notification[] = {"/home/will/.scripts/dmenu/donotdisturb.sh", NULL};
+
 /*volume control */
 /* static const char *upvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "+3%", NULL}; */
 static const char *upvol[] = {"/home/will/.dwm/volume.sh", "up", NULL};
@@ -99,6 +102,7 @@ static const char *play[] = {"playerctl", "play-pause", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = notification } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = calendar } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = powermenu } },
     { MODKEY,                       XK_s,      spawn,          {.v = rofidruncmd } },
