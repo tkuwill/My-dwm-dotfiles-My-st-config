@@ -3,7 +3,12 @@
 st terminal config steps in **archlinux**. (And dwm & dmenu's config)
 </br>I also put my tmux's config and .zshrc here.
 
+
+
 ## Screenshot
+
+I added a volume notifications with dunst in dwm.
+https://user-images.githubusercontent.com/86701769/180633336-3953fb9c-8d06-452d-9e00-46902307df8a.mp4
 
 ![](/screenshot/tmux.png)
 
