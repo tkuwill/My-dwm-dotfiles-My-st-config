@@ -85,12 +85,12 @@ static const char *powermenu[] = {"/home/will/.scripts/dmenu/powermenu.sh", NULL
 static const char *calendar[] = {"/home/will/.scripts/dmenu/calendar.sh", NULL};
 
 /*volume control */
-static const char *upvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "+3%",
-                              NULL};
-static const char *downvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "-3%",
-                                NULL};
-static const char *mutevol[] = {"/usr/bin/pactl", "set-sink-mute", "0",
-                                "toggle", NULL};
+/* static const char *upvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "+3%", NULL}; */
+static const char *upvol[] = {"/home/will/.dwm/volume.sh", "up", NULL};
+/* static const char *downvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "-3%", NULL}; */
+static const char *downvol[] = {"/home/will/.dwm/volume.sh", "down", NULL};
+/* static const char *mutevol[] = {"/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL}; */
+static const char *mutevol[] = {"/home/will/.dwm/volume.sh", "mute", NULL};
 /* Control Media Players */
 static const char *next[] = {"playerctl", "next", NULL};
 static const char *prev[] = {"playerctl", "previous", NULL};
