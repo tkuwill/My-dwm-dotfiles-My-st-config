@@ -299,7 +299,7 @@ PROMPT='%F{14} %~ ${vcs_info_msg_0_} %f
 HISTFILE=~/.zsh_history
 HISTSIZE=50000
 SAVEHIST=99999
-HISTORY_IGNORE="(ls|cd|pwd|exit|cmus|la|bye|fff|ranger|mpv|yt-dlp|paru|yay|pavucontrol|rofi|./batterycycle.sh|tmux| ..)"
+HISTORY_IGNORE="(ls|cd|pwd|exit|cmus|la|bye|fff|ranger|mpv|yt-dlp|paru|yay|pavucontrol|rofi|./batterycycle.sh|tmux|alsamixer|acpi| ..)"
 # The meaning of these options can be found in man page of `zshoptions`.
 # setopt HIST_IGNORE_ALL_DUPS  # do not put duplicated command into history list
 # setopt HIST_SAVE_NO_DUPS  # do not save duplicated command
