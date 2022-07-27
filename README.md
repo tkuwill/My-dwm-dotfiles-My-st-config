@@ -8,10 +8,15 @@ st terminal config steps in **archlinux**. (And dwm & dmenu's config)
 ## Screenshot
 
 I added a volume notifications with dunst in dwm.
-https://user-images.githubusercontent.com/86701769/180633336-3953fb9c-8d06-452d-9e00-46902307df8a.mp4
+</br>Here is the [video](https://user-images.githubusercontent.com/86701769/180633336-3953fb9c-8d06-452d-9e00-46902307df8a.mp4) to show that.
 
+Here is the Do-not-disturb script.
 ![](/screenshot/donotdisturb.png)
 
+With vertical dmenu.
+![](/screenshot/donotdisturbv.png)
+
+Here is the tmux.
 ![](/screenshot/tmux.png)
 
 ![](/screenshot/st2.png)
