@@ -33,9 +33,9 @@ dwm_battery () {
     printf "%s\n" "$SEP2"
 }
 
-bat_time () {
-  acpi | grep 'Battery 0' | grep  -Eo '[0-9][0-9]:[0-9][0-9]'
-}
+# bat_time () {
+  # acpi | grep 'Battery 0' | grep  -Eo '[0-9][0-9]:[0-9][0-9]'
+# }
 
 dwm_alsa () {
 	STATUS=$(amixer sget Master | tail -n1 | sed -r "s/.*\[(.*)\]/\1/")
@@ -73,7 +73,7 @@ dwm_alsa () {
 
 while true
 do
-    xsetroot -name "$(dwm_alsa)|$(dwm_date)|$(dwm_battery)|$(bat_time)-remaining"
+    xsetroot -name "$(dwm_alsa)|$(dwm_date)|$(dwm_battery)"
     sleep 1 
 done
 
