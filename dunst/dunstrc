@@ -1,5 +1,5 @@
 # See dunst(5) for all configuration options
-
+# Color credit from https://github.com/catppuccin/dunst/blob/main/src/latte.conf
 [global]
     ### Display ###
 
@@ -24,7 +24,7 @@
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 300
+    width = 350
 
     # The maximum height of a single notification, excluding the frame.
     height = 300
@@ -58,7 +58,7 @@
     progress_bar_min_width = 150
 
     # Set the maximum width for the progress bar
-    progress_bar_max_width = 300
+    progress_bar_max_width = 350
 
 
     # Show how many messages are currently hidden (because of
@@ -90,13 +90,13 @@
     frame_width = 3
 
     # Defines color of the frame around the notification window.
-    frame_color = "#aaaaaa"
+    # frame_color = "#aaaaaa"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
     # of size frame_width will be drawn around each notification instead.
     # Click events on gaps do not currently propagate to applications below.
-    gap_size = 0
+    gap_size = 3
 
     # Define a color for the separator.
     # possible values are:
@@ -209,7 +209,7 @@
     min_icon_size = 32
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 128
+    max_icon_size = 32
 
     # Paths to default icons (only neccesary when not using recursive icon lookup)
     icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
@@ -308,15 +308,30 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
-    foreground = "#888888"
+    # background = "#222222"
+    # foreground = "#888888"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
+[global]
+frame_color = "#1E66F5"
+separator_color= frame
+
+[urgency_low]
+background = "#EFF1F5"
+foreground = "#4C4F69"
 
 [urgency_normal]
-    background = "#285577"
-    foreground = "#ffffff"
+background = "#EFF1F5"
+foreground = "#4C4F69"
+
+[urgency_critical]
+# background = "#EFF1F5"
+# foreground = "#4C4F69"
+# frame_color = "#FE640B"
+[urgency_normal]
+    # background = "#285577"
+    # foreground = "#ffffff"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
@@ -324,7 +339,8 @@
 [urgency_critical]
     background = "#900000"
     foreground = "#ffffff"
-    frame_color = "#ff0000"
+    frame_color = "#FE640B"
+    # frame_color = "#ff0000"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
     #default_icon = /path/to/icon
