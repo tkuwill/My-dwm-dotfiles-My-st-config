@@ -1,4 +1,6 @@
 #!/bin/bash
+# volume up, down, mute icon are from <a href="https://www.flaticon.com/free-icons/volume" title="volume icons">Volume icons created by nawicon - Flaticon</a>.
+# Credit from https://gist.github.com/sebastiencs/5d7227f388d93374cebdf72e783fbd6a & https://wiki.archlinux.org/title/Dunst  .
 
 # You can call this script like this:
 # $./volume.sh up
@@ -21,10 +23,10 @@ function send_notification {
     # Send the notification
     if [[ $volume == 0 || "$mute" == "off" ]]; then
     # Show the sound muted notification
-    dunstify -t 1000 -a "changeVolume" -u low -i audio-volume-muted -h string:x-dunst-stack-tag:$msgTag "Volume muted" 
+    dunstify -t 1000 -a "changeVolume" -i /home/will/Pictures/sysicon/volume-mute.png  -h string:x-dunst-stack-tag:$msgTag "Volume muted" 
 else
     # Show the volume notification
-    dunstify -t 1000 -a "changeVolume" -u low -i audio-volume-high -h string:x-dunst-stack-tag:$msgTag \
+    dunstify -t 1000 -a "changeVolume" -i /home/will/Pictures/sysicon/volume.png -h string:x-dunst-stack-tag:$msgTag \
     -h int:value:"$volume" "Volume: ${volume}%"
 fi
 }
@@ -46,7 +48,7 @@ case $1 in
     	# Toggle mute
 	amixer -D pulse set Master 1+ toggle > /dev/null
 	if is_mute ; then
-        dunstify -t 1000 -a "changeVolume" -u low -i audio-volume-muted -h string:x-dunst-stack-tag:$msgTag "Volume muted"
+        dunstify -t 1000 -a "changeVolume" -i /home/will/Pictures/sysicon/volume-mute.png  -h string:x-dunst-stack-tag:$msgTag "Volume muted"
 
 	fi
 	;;
