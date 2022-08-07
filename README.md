@@ -14,6 +14,8 @@ I added a volume notifications with dunst in dwm.
 
 https://user-images.githubusercontent.com/86701769/183291982-16a51f9b-7c33-41bf-b32e-60e44a70821f.mp4
 
+If you can't see, here is the example video on YouTube. https://www.youtube.com/embed/WoZNyea_gRI
+
 Here is the system info script.
 ![](/screenshot/sysinfo.png)
 
