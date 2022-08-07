@@ -21,52 +21,39 @@ function send_notification {
     volume=`get_volume`
     # Make the bar with the special character ─ (it's not dash -)
     # https://en.wikipedia.org/wiki/Box-drawing_character
-    bar=$(seq -s "─" $(($volume / 5)) | sed 's/[0-9]//g')
+    bar=$(seq -s "─" $(($volume / 2)) | sed 's/[0-9]//g')
     # Send the notification
-    if [[ $volume == 0 || "$mute" == "off" ]]; then
-    # Show the sound muted notification
-    dunstify -t 1000 -a "changeVolume" -i /home/will/Pictures/sysicon/mute.png  -h string:x-dunst-stack-tag:$msgTag "Volume muted" 
-else
-    # Show the volume notification
-    dunstify -t 1000 -a "changeVolume" -i /home/will/Pictures/sysicon/volume-up.png -h string:x-dunst-stack-tag:$msgTag \
-    -h int:value:"$volume" "Volume: ${volume}%"
-fi
+     dunstify -i /home/will/Pictures/sysicon/volume-up.png -t 8000 -r 2593 -u normal -h int:value:"$volume" "Volume: ${volume}%"
 }
 
 function send_notification1 {
     volume=`get_volume`
     # Make the bar with the special character ─ (it's not dash -)
     # https://en.wikipedia.org/wiki/Box-drawing_character
-    bar=$(seq -s "─" $(($volume / 5)) | sed 's/[0-9]//g')
+    bar=$(seq -s "─" $(($volume / 2)) | sed 's/[0-9]//g')
     # Send the notification
-    if [[ $volume == 0 || "$mute" == "off" ]]; then
-    # Show the sound muted notification
-    dunstify -t 1000 -a "changeVolume" -i /home/will/Pictures/sysicon/mute.png  -h string:x-dunst-stack-tag:$msgTag "Volume muted" 
-else
-    # Show the volume notification
-    dunstify -t 1000 -a "changeVolume" -i /home/will/Pictures/sysicon/volume-down.png -h string:x-dunst-stack-tag:$msgTag \
-    -h int:value:"$volume" "Volume: ${volume}%"
-fi
+     dunstify -i /home/will/Pictures/sysicon/volume-down.png -t 8000 -r 2593 -u normal -h int:value:"$volume" "Volume: ${volume}%"
 }
 case $1 in
     up)
 	# Set the volume on (if it was muted)
 	amixer -D pulse set Master on > /dev/null
-	# Up the volume (+ 3%)
-	amixer -D pulse sset Master 3%+ > /dev/null
+	# Up the volume (+ 2%)
+	amixer -D pulse sset Master 2%+ > /dev/null
 	send_notification
 	;;
     down)
 	amixer -D pulse set Master on > /dev/null
-	amixer -D pulse sset Master 3%- > /dev/null
+	amixer -D pulse sset Master 2%- > /dev/null
 	send_notification1
 	;;
     mute)
     	# Toggle mute
 	amixer -D pulse set Master 1+ toggle > /dev/null
 	if is_mute ; then
-        dunstify -t 1000 -a "changeVolume" -i /home/will/Pictures/sysicon/mute.png  -h string:x-dunst-stack-tag:$msgTag "Volume muted"
-
+        dunstify -i /home/will/Pictures/sysicon/mute.png -t 8000 -r 2593 -u normal "Volume: Mute"
+    else
+        send_notification
 	fi
 	;;
 esac
