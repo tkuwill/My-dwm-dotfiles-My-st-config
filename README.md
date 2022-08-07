@@ -5,10 +5,14 @@ st terminal config steps in **archlinux**. (And dwm & dmenu's config)
 
 
 
+
+
+
 ## Screenshot
 
 I added a volume notifications with dunst in dwm.
-</br>Here is the [video](https://user-images.githubusercontent.com/86701769/180633336-3953fb9c-8d06-452d-9e00-46902307df8a.mp4) to show that.
+
+https://user-images.githubusercontent.com/86701769/183291982-16a51f9b-7c33-41bf-b32e-60e44a70821f.mp4
 
 Here is the system info script.
 ![](/screenshot/sysinfo.png)
