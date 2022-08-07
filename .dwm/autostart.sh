@@ -10,9 +10,13 @@ feh --bg-fill /home/will/Pictures/DesktopBackground/wallpaperdwm.jpg &
 /usr/bin/dunst &
 /home/will/.dwm/lowbatremind.sh &
 # xsetroot for dwm
-dwm_date () {
-    date '+%Y年%m月%d日(%a)%H:%M'
+
+# dwm_date
+
+print_date(){
+	echo $(date "+%Y-%m-%d（%a）%T")
 }
+
 # by joestandring/dwm-bar
 
 dwm_battery () {
@@ -73,7 +77,7 @@ dwm_alsa () {
 
 while true
 do
-    xsetroot -name "$(dwm_alsa)|$(dwm_date)|$(dwm_battery)"
+    xsetroot -name "$(dwm_alsa)|$(print_date)|$(dwm_battery)"
     sleep 1 
 done
 
