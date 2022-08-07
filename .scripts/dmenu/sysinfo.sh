@@ -33,7 +33,7 @@ function now_play {
 
 
 function sysinfo {
-    options="Cancel\nMemory\nBAT-remaining\ncpu_fan\ncpu_temp\nNow_playing"
+    options="Cancel\nMemory\nBAT-remaining\ncpu_fan\ncpu_temp\nNow_playing\ntty_clock"
     selected=$(echo -e $options | dmenu -i -p "System info")
     if [[ $selected = "Memory" ]]; then 
         notify-send -i /home/will/Pictures/sysicon/ram.png -t 8000 "Mem is used : $(mem)  /  $(allmem)." 
@@ -45,7 +45,9 @@ function sysinfo {
         notify-send -i /home/will/Pictures/sysicon/cpu.png -t 5000 "CPU temp: $(cpu_temp) ."
     elif [[ $selected = "Now_playing" ]]; then 
         notify-send -i /home/will/Pictures/sysicon/music.png -t 5000 "$(now_play)"
-    elif [[ $selected = "Cancel" ]]; then 
+    elif [[ $selected = "tty_clock" ]]; then 
+      st -e zsh -c 'tty-clock -s -c -r -B -D -C 6; zsh'
+      elif [[ $selected = "Cancel" ]]; then 
         return
     fi
 
