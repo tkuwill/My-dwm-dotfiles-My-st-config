@@ -1,0 +1,192 @@
+! urxvt name
+URxvt*termName: rxvt-unicode
+
+
+! Disabled keycap picture insert mode and basic ISO 14755 mode
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+! Belling of urxvt
+urxvt*urgentOnBell: true
+
+! 输出时不滚动
+URxvt*scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! 按键按下时回到最底部
+URxvt*scrollTtyKeypress: true
+
+! Fonts
+ URxvt.font: xft:SauceCodeProNerdFont:bold:size=14:antialias=true,xft:Noto Sans Mono CJK TC:bold:size=14:antialias=true,xft:Symbola:size=14:antialias=true
+
+! Fonts spacing
+ URxvt.letterSpace: 1.8
+
+
+! scrollbar style - rxvt (default),
+! plain (compact), NeXT, or xtermn
+URxvt.scrollstyle: plain
+URxvt.scrollBar: false
+
+! cursor style
+URxvt*cursorBlink: true
+
+! color theme
+*.foreground:#ffffff
+URxvt*background: [70]#000000
+URxvt*depth: 32
+*.cursorColor:#9f9f9f
+! black
+URxvt.color0  : #282A2E
+URxvt.color8  : #555555
+! red
+URxvt.color1  : #CC6666
+URxvt.color9  : #cb2460
+! green
+URxvt.color2  : #9cd32d
+URxvt.color10 : #B5BD68
+! yellow
+URxvt.color3  : #f1df18
+URxvt.color11 : #f4bf75
+! blue
+URxvt.color4  : #00afd7
+URxvt.color12 : #77fff4
+! magenta
+URxvt.color5  : #AA00AA
+URxvt.color13 : #FF55FF
+! cyan
+URxvt.color6  : #00AAAA
+URxvt.color14 : #55FFFF
+! white
+URxvt.color7  : #e7e7e7
+URxvt.color15 : #FFFFFF
+
+URxvt.keysym.KP_Home: \033[1~
+URxvt.keysym.KP_End:  \033[4~
+
+! Configuration for uxterm
+
+UXTerm.termName: xterm-256color
+
+UXTerm.keysym.KP_Home: \033[1~
+UXTerm.keysym.KP_End:  \033[4~
+
+! Make alt work
+!UXTerm*eightBitInput:   false
+!UXTerm*eightBitOutput:  true
+UXTerm.vt100.metaSendsEscape: true
+
+! Make cursor blinking
+UXTerm*cursorBlink: true
+
+! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+UXTerm*loginshell: true
+
+! Scrollbacks
+UXTerm.vt100.saveLines: 14096
+
+! Double-click to select whole URLs :D
+UXTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+! Default font and size
+UXTerm*faceName: SauceCodePro Nerd Font:bold
+UXTerm*faceSize: 14
+
+
+! Colors
+UXTerm*foreground: rgb:ff/ff/ff
+UXTerm*background: rgb:22/22/22
+UXTerm*color0: rgb:00/00/00
+UXTerm*color1: rgb:ff/55/00
+UXTerm*color2: rgb:af/ff/00
+UXTerm*color3: rgb:f0/de/18
+! xterm*color4: rgb:00/00/a8
+UXTerm*color4: rgb:00/ae/d6
+UXTerm*color5: rgb:aa/00/aa
+UXTerm*color6: rgb:00/fc/fc
+UXTerm*color7: rgb:f4/f4/f4
+UXTerm*color8: rgb:54/54/54
+UXTerm*color9: rgb:fc/54/54
+UXTerm*color10: rgb:54/fc/54
+UXTerm*color11: rgb:fc/fc/54
+UXTerm*color12: rgb:55/ff/ff
+UXTerm*color13: rgb:fc/54/fc
+UXTerm*color14: rgb:54/fc/fc
+UXTerm*color15: rgb:fc/fc/fc
+
+! Right-side scrollbar
+UXTerm*ScrollBar: false
+
+! Stop output to terminal from jumping down to bottom of scroll again
+UXTerm*scrollTtyOutput: false
+
+UXTerm*ScrollKey: true
+
+! copy and paste to clipboard
+UXTerm*VT100.Translations: #override \
+                 Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+                 Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
+! End configuration for xterm
+
+! Configuration for xterm
+
+XTerm.termName: xterm-256color
+
+! Make alt work
+!XTerm*eightBitInput:   false
+!XTerm*eightBitOutput:  true
+XTerm.vt100.metaSendsEscape: true
+
+! Make cursor blinking
+XTerm*cursorBlink: true
+
+! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+XTerm*loginshell: true
+
+! Scrollbacks
+XTerm.vt100.saveLines: 14096
+
+! Double-click to select whole URLs :D
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+! Default font and size
+XTerm*faceName: SauceCodePro Nerd Font:bold
+XTerm*faceSize: 8
+
+
+! Colors
+XTerm*foreground: rgb:ff/ff/ff
+XTerm*background: rgb:22/22/22
+XTerm*color0: rgb:00/00/00
+XTerm*color1: rgb:ff/55/00
+XTerm*color2: rgb:af/ff/00
+XTerm*color3: rgb:f0/de/18
+! xterm*color4: rgb:00/00/a8
+XTerm*color4: rgb:00/ae/d6
+XTerm*color5: rgb:aa/00/aa
+XTerm*color6: rgb:00/fc/fc
+XTerm*color7: rgb:f4/f4/f4
+XTerm*color8: rgb:54/54/54
+XTerm*color9: rgb:fc/54/54
+XTerm*color10: rgb:54/fc/54
+XTerm*color11: rgb:fc/fc/54
+XTerm*color12: rgb:55/ff/ff
+XTerm*color13: rgb:fc/54/fc
+XTerm*color14: rgb:54/fc/fc
+XTerm*color15: rgb:fc/fc/fc
+
+! Right-side scrollbar
+XTerm*ScrollBar: false
+
+! Stop output to terminal from jumping down to bottom of scroll again
+XTerm*scrollTtyOutput: false
+
+XTerm*ScrollKey: true
+
+! copy and paste to clipboard
+XTerm*VT100.Translations: #override \
+                 Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+                 Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
+! End configuration for xterm
