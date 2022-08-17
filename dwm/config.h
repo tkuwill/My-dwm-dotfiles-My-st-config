@@ -104,14 +104,17 @@ static const char *next[] = {"playerctl", "next", NULL};
 static const char *prev[] = {"playerctl", "previous", NULL};
 static const char *play[] = {"playerctl", "play-pause", NULL};
 
+/* cmus player control */
+static const char *player[] = {"/home/will/.scripts/dmenu/player.sh", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = player } },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = sysinfo } },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = notification } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = calendar } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = powermenu } },
-    { MODKEY,                       XK_s,      spawn,          {.v = rofidruncmd } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = rofidruncmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
@@ -145,7 +148,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_u,      quit,           {0} },
     /*volume control keys */
     {0, XF86XK_AudioMute, spawn, {.v = mutevol}},
     {0, XF86XK_AudioLowerVolume, spawn, {.v = downvol}},
