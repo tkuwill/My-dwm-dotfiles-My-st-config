@@ -17,7 +17,7 @@ static const char *colors[][3]      = {
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#005577"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsSel]  = { col_gray4, "#FF5733",  "#FF5733"  }, // Tagbar left selected {text,background,not used but cannot be empty}
     [SchemeTagsNorm]  = { "#ffffff", "#00003e",  "#00003e"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
     [SchemeInfoSel]  = { col_gray4, col_cyan,  "#005577"  }, // infobar middle  selected {text,background,not used but cannot be empty}
     [SchemeInfoNorm]  = { col_gray3, "#f8d2ff",  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
@@ -107,8 +107,16 @@ static const char *play[] = {"playerctl", "play-pause", NULL};
 /* cmus player control */
 static const char *player[] = {"/home/will/.scripts/dmenu/player.sh", NULL};
 
+/*screenshot*/
+static const char *shotcmd[]  = { "flameshot", "full", NULL };
+static const char *shotzcmd[]  = { "flameshot", "gui", NULL };
+static const char *shottool[]  = { "flameshot", "launcher", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY|ShiftMask,             XK_q,      spawn,          {.v = shottool } },
+	{ MODKEY|ShiftMask,             XK_z,      spawn,          {.v = shotzcmd } },
+	{ MODKEY|ShiftMask,             XK_a,      spawn,          {.v = shotcmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = player } },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = sysinfo } },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = notification } },
