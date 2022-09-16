@@ -1,9 +1,10 @@
 #!/bin/sh
 # General stuff
+xrdb -merge ~/.Xresources &
+fcitx5 &
 arandr &
 xfce4-power-manager &
 thunderbird &
-spectacle &
 picom &
 copyq &
 feh --bg-fill /home/will/Pictures/DesktopBackground/wallpaperdwm.jpg &
