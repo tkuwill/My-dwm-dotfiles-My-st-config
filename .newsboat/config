@@ -1,0 +1,3 @@
+auto-reload yes
+browser chromium
+include ~/.newsboat/colorcli.config
