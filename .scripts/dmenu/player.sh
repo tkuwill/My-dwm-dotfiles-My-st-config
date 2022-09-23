@@ -7,7 +7,7 @@ function now_play {
 }
 
 function urls {
-    xclip -o
+    copyq read
 }
 
 

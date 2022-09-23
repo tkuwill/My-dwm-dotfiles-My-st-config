@@ -22,14 +22,16 @@ function cpu_fan {
     sensors | grep 'cpu_fan'
 }
 
-function cpu_temp {
-    sensors | grep 'Core 0' | cut -c 16-23
-}
 
 function now_play {
     playerctl metadata --format "{{ title }} 
 {{ artist }} - {{ album }}"
 }
+
+function cpu_temp {
+    sensors | grep 'Core 1' | cut -c 17-23 | grep -Eo '[0-9][0-9].[0-9]'
+}
+
 
 
 function sysinfo {
@@ -42,7 +44,7 @@ function sysinfo {
     elif [[ $selected = "cpu_fan" ]]; then 
         notify-send -i /home/will/Pictures/sysicon/fan.png -t 5000 "$(cpu_fan)"
     elif [[ $selected = "cpu_temp" ]]; then 
-        notify-send -i /home/will/Pictures/sysicon/cpu.png -t 5000 "CPU temp: $(cpu_temp) ."
+        notify-send -i /home/will/Pictures/sysicon/cpu.png -t 5000 "CPU temp: $(cpu_temp) °C."
     elif [[ $selected = "Now_playing" ]]; then 
         notify-send -i /home/will/Pictures/sysicon/music.png -t 5000 "$(now_play)"
     elif [[ $selected = "tty_clock" ]]; then 
