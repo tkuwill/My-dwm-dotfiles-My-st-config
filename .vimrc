@@ -81,5 +81,7 @@ set encoding=utf-8
 
 " keymapping
 nnoremap <C-L> :noh<cr>
-nnoremap <C-S> :set nowrap<cr>
-nnoremap <C-X> :set wrap<cr>
+nnoremap <F8> :set nowrap<cr>
+nnoremap <F9> :set wrap<cr>
+nnoremap <F3> :set background=light<cr>
+nnoremap <F4> :set background=dark<cr>
