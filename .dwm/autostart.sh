@@ -3,7 +3,6 @@
 xrdb -merge ~/.Xresources &
 fcitx5 &
 arandr &
-xfce4-power-manager &
 thunderbird &
 picom &
 copyq &
