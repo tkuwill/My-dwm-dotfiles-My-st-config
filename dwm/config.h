@@ -91,6 +91,8 @@ static const char *notification[] = {"/home/will/.scripts/dmenu/donotdisturb.sh"
 /* system info */
 static const char *sysinfo[] = {"/home/will/.scripts/dmenu/sysinfo.sh", NULL};
 
+/* caffeine menu  */
+static const char *caffeine[] = {"/home/will/.scripts/dmenu/caffeine.sh", NULL};
 
 /*volume control */
 /* static const char *upvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "+3%", NULL}; */
@@ -121,6 +123,7 @@ static Key keys[] = {
 	/*brightness control keys */
 	{ 0, XF86XK_MonBrightnessDown, spawn, {.v = downbri}},
 	{ 0, XF86XK_MonBrightnessUp, spawn, {.v = upbri}},
+	{ MODKEY|ShiftMask,             XK_k,      spawn,          {.v = caffeine } },
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          {.v = shottool } },
 	{ MODKEY|ShiftMask,             XK_z,      spawn,          {.v = shotzcmd } },
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          {.v = shotcmd } },
