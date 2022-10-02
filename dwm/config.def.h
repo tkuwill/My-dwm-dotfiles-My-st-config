@@ -112,8 +112,15 @@ static const char *shotcmd[]  = { "flameshot", "full", NULL };
 static const char *shotzcmd[]  = { "flameshot", "gui", NULL };
 static const char *shottool[]  = { "flameshot", "launcher", NULL };
 
+/* brightness control */
+static const char *upbri[] = {"/home/will/.dwm/screenlight.sh", "up", NULL};
+static const char *downbri[] = {"/home/will/.dwm/screenlight.sh", "down", NULL};
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	/*brightness control keys */
+	{ 0, XF86XK_MonBrightnessDown, spawn, {.v = downbri}},
+	{ 0, XF86XK_MonBrightnessUp, spawn, {.v = upbri}},
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          {.v = shottool } },
 	{ MODKEY|ShiftMask,             XK_z,      spawn,          {.v = shotzcmd } },
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          {.v = shotcmd } },
