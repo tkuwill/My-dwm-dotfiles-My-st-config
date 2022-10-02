@@ -11,6 +11,17 @@ feh --bg-fill /home/will/Pictures/DesktopBackground/wallpaperdwm.jpg &
 /home/will/.dwm/lowbatremind.sh &
 # xsetroot for dwm
 
+# caffeine
+print_caffeine(){
+    MODE=$(xset -q | grep 'DPMS is' | cut -c 11-19)
+    if [ "$MODE" = "Disabled" ]; then
+        printf ":零"
+    elif [ "$MODE" = "Enabled" ]; then
+        printf ":鈴"
+    fi
+
+}
+
 # dwm_date
 
 print_date(){
@@ -32,7 +43,11 @@ dwm_battery () {
             printf "🔋 %s%% %s" "$CHARGE" "$STATUS"
         fi
     else
-        printf "BAT %s%% %s" "$CHARGE" "$STATUS"
+        if [ "$STATUS" = "Charging" ]; then
+            printf "ﴞ %s%% %s" "$CHARGE" "$STATUS"
+        else
+            printf " %s%% %s" "$CHARGE" "$STATUS"
+        fi
     fi
     printf "%s\n" "$SEP2"
 }
@@ -60,15 +75,17 @@ dwm_alsa () {
 		fi
     else
     	if [ "$STATUS" = "off" ]; then
-    		printf "MUTE"
+    		printf "婢"
     	else
 	        # removed this line because it may get confusing
 	        if [ "$VOL" -gt 0 ] && [ "$VOL" -le 33 ]; then
-	            printf "VOL %s%%" "$VOL"
+	            printf "奔 %s%%" "$VOL"
 	        elif [ "$VOL" -gt 33 ] && [ "$VOL" -le 66 ]; then
-	            printf "VOL %s%%" "$VOL"
+	            printf "墳 %s%%" "$VOL"
+	        elif [ "$VOL" = "0" ]; then
+	            printf "婢 %s%%" "$VOL"
 	        else
-	            printf "VOL %s%%" "$VOL"
+	            printf " %s%%" "$VOL"
         	fi
         fi
     fi
@@ -77,7 +94,7 @@ dwm_alsa () {
 
 while true
 do
-    xsetroot -name "$(dwm_alsa)|$(print_date)|$(dwm_battery)"
+    xsetroot -name "$(print_caffeine)|$(dwm_alsa)|$(print_date)|$(dwm_battery)"
     sleep 1 
 done
 
