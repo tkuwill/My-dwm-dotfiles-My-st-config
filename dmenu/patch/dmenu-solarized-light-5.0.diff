@@ -1,0 +1,27 @@
+From 056331da9c6a72b90b32766840eb69e17f33cce8 Mon Sep 17 00:00:00 2001
+From: Harsh Parekh <harsh_parekh@outlook.com>
+Date: Mon, 21 Sep 2020 19:59:56 -0400
+Subject: [PATCH] Apply solarized light colour scheme to dmenu.
+
+---
+ config.def.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/config.def.h b/config.def.h
+index 1edb647..7645e7f 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -9,8 +9,8 @@ static const char *fonts[] = {
+ static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
+ static const char *colors[SchemeLast][2] = {
+ 	/*     fg         bg       */
+-	[SchemeNorm] = { "#bbbbbb", "#222222" },
+-	[SchemeSel] = { "#eeeeee", "#005577" },
++	[SchemeNorm] = { "#657b83", "#fdf6e3" },
++	[SchemeSel] = { "#657b83", "#eee8d5"},
+ 	[SchemeOut] = { "#000000", "#00ffff" },
+ };
+ /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
+-- 
+2.28.0
+

@@ -9,15 +9,12 @@ static const char *fonts[] = {
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
-	[SchemeNorm] = { "#bbbbbb", "#00007f" },
-	[SchemeSel] = { "#eeeeee", "#ff00ff" },
+	[SchemeNorm] = { "#657b83", "#fdf6e3" },
+	[SchemeSel] = { "#657b83", "#eee8d5"},
 	[SchemeOut] = { "#000000", "#00ffff" },
-	[SchemeMid] = { "#eeeeee", "#222222" },
 };
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
 static unsigned int lines      = 17;
-static unsigned int maxhist    = 1024;
-static int histnodup           = 1;	/* if 0, record repeated histories */
 
 /*
  * Characters not considered part of a word while deleting words
@@ -26,4 +23,4 @@ static int histnodup           = 1;	/* if 0, record repeated histories */
 static const char worddelimiters[] = " ";
 
 /* Size of the window border */
-static const unsigned int border_width = 5;
+static const unsigned int border_width = 8;
