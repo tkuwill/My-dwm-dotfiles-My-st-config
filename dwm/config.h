@@ -15,18 +15,16 @@ static const char col_cyan[]        = "#005577";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray3,  col_gray1, "#f7fa3e"   },
 	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]  = { col_gray4, "#FF5733",  "#FF5733"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-    [SchemeTagsNorm]  = { "#ffffff", "#00003e",  "#00003e"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-    [SchemeInfoSel]  = { col_gray4, col_cyan,  "#005577"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-    [SchemeInfoNorm]  = { col_gray3, "#f8d2ff",  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeTagsSel]  = { col_gray1, "#f7fa3e",  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeInfoSel]  = { col_gray4, col_cyan,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
-static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *tags[] = { "", "", "", "", "", "", "輸", "", "" };
-static const int momentaryalttags = 0; /* 1 means alttags will show only when key is held down*/
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -73,9 +71,7 @@ static const Layout layouts[] = {
 
 #include <X11/XF86keysym.h>
 /* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-/* static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL }; */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *rofidruncmd[] = {"rofi", "-show", "drun", "-config", "/home/will/.config/rofi/Paper.rasi", NULL};
 
@@ -118,11 +114,19 @@ static const char *shottool[]  = { "flameshot", "launcher", NULL };
 static const char *upbri[] = {"/home/will/.dwm/screenlight.sh", "up", NULL};
 static const char *downbri[] = {"/home/will/.dwm/screenlight.sh", "down", NULL};
 
-static Key keys[] = {
+static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	/*brightness control keys */
 	{ 0, XF86XK_MonBrightnessDown, spawn, {.v = downbri}},
 	{ 0, XF86XK_MonBrightnessUp, spawn, {.v = upbri}},
+    /*volume control keys */
+    {0, XF86XK_AudioMute, spawn, {.v = mutevol}},
+    {0, XF86XK_AudioLowerVolume, spawn, {.v = downvol}},
+    {0, XF86XK_AudioRaiseVolume, spawn, {.v = upvol}},
+    /*media control keys */
+    { 0, XF86XK_AudioPlay, spawn, {.v = play }},
+    { 0, XF86XK_AudioNext, spawn, {.v = next }},
+    { 0, XF86XK_AudioPrev, spawn, {.v = prev }},
 	{ MODKEY|ShiftMask,             XK_k,      spawn,          {.v = caffeine } },
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          {.v = shottool } },
 	{ MODKEY|ShiftMask,             XK_z,      spawn,          {.v = shotzcmd } },
@@ -156,7 +160,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_n,      togglealttag,   {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -167,19 +170,11 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_u,      quit,           {0} },
-    /*volume control keys */
-    {0, XF86XK_AudioMute, spawn, {.v = mutevol}},
-    {0, XF86XK_AudioLowerVolume, spawn, {.v = downvol}},
-    {0, XF86XK_AudioRaiseVolume, spawn, {.v = upvol}},
-    /*media control keys */
-    { 0, XF86XK_AudioPlay, spawn, {.v = play }},
-    { 0, XF86XK_AudioNext, spawn, {.v = next }},
-    { 0, XF86XK_AudioPrev, spawn, {.v = prev }},
 };
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
-static Button buttons[] = {
+static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
@@ -193,4 +188,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
