@@ -3,11 +3,6 @@
 st terminal config steps in **archlinux**. (And dwm & dmenu's config)
 </br>I also put my tmux's config and .zshrc here.
 
-
-
-
-
-
 ## Screenshot
 
 I added a volume notifications with dunst in dwm.
@@ -53,6 +48,7 @@ It is my first time to install `st`. So the steps may be a little messy.
 </br>Remember to **re-compile** everytime when you edit `config.def.h`.
 </br>Run `rm -rf config.h && sudo make clean install`.
 
+
 ## Steps
 First, `git clone https://git.suckless.org/st`.  (Assuming you do this in `~`.)
 </br>Then, edit `config.mk`.
@@ -83,7 +79,7 @@ Patches I use :
 - [st-scrollback-0.8.5.diff](https://st.suckless.org/patches/scrollback/st-scrollback-0.8.5.diff)
 - [st-scrollback-mouse-0.8.2.diff](https://st.suckless.org/patches/scrollback/st-scrollback-mouse-0.8.2.diff)
 - [st-w3m-0.8.3.diff](https://st.suckless.org/patches/w3m/st-w3m-0.8.3.diff)
-
+- [st-solarized-light-0.8.5.diff](https://st.suckless.org/patches/solarized/st-solarized-light-0.8.5.diff)
 You can use browser's `Save Link As` to save them in your `~/st/patch`.
 </br>Then typing below to patch you st.
 </br>Remember to `patch` in `~/st`.
@@ -141,7 +137,6 @@ For scroll:
 ```
 After patching, run `rm -rf config.h && sudo make clean install`.
 
-Also, you can check my [config.def.h](https://github.com/tkuwill/My-st-config/blob/main/config.def.h) if you still have no idea.
 
 
 
