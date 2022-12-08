@@ -7,15 +7,18 @@
 # You have to install lm_sensors, acpi, libnotify, playerctl and a notification package (like dunst) in order to use this script.
 
 function mem {
-    free -h | grep 'Mem' | cut -c 28-32
-}
-
-function allmem {
-    free -h | grep 'Mem' | cut -c 16-20
+    free -h | grep 'Mem' | awk '{print "Mem is used : "$3" / "$2"."}'
 }
 
 function battime {
-    acpi | grep 'Battery 0' | grep  -Eo '[0-9][0-9]:[0-9][0-9]'
+    STATUS=$(cat /sys/class/power_supply/BAT0/status)
+        if [ "$STATUS" = "Discharging" ]; then
+	    acpi | grep "Battery 0" | awk '{print "BAT-time : " $5,$6"."}'
+        elif [ "$STATUS" = "Charging" ]; then
+	    acpi | grep "Battery 0" | awk '{print "BAT-time : " $5,$6,$7"."}'
+        elif [ "$STATUS" = "Not charging" ]; then
+        acpi | grep "Battery 0" | awk '{print "Now BAT is "$5"."}'
+        fi
 }
 
 function cpu_fan {
@@ -23,30 +26,29 @@ function cpu_fan {
 }
 
 
-function now_play {
-    playerctl metadata --format "{{ title }} 
-{{ artist }} - {{ album }}"
-}
 
 function cpu_temp {
-    sensors | grep 'Core 1' | cut -c 17-23 | grep -Eo '[0-9][0-9].[0-9]'
+    sensors | grep 'Core 1' | sed '1 s/+/\ /g' | awk '{print "CPU temp : "$3"."}'
 }
 
+function bat_temp {
+    acpi --thermal | grep -Eo '[0-9][0-9].[0-9]' | awk '{print "BAT temp : "$1"°C."}'
+}
 
 
 function sysinfo {
-    options="Cancel\nMemory\nBAT-remaining\ncpu_fan\ncpu_temp\nNow_playing\ntty_clock"
+    options="Cancel\nMemory\nBAT-remaining\ncpu_fan\ncpu_temp\nBAT_temp\ntty_clock"
     selected=$(echo -e $options | dmenu -i -p "System info")
     if [[ $selected = "Memory" ]]; then 
-        notify-send -i /home/will/Pictures/sysicon/ram.png -t 8000 "Mem is used : $(mem)  /  $(allmem)." 
+        notify-send -i /home/will/Pictures/sysicon/ram.png -t 8000 "$(mem)" 
     elif [[ $selected = "BAT-remaining" ]]; then 
-        notify-send -i /home/will/Pictures/sysicon/battery.png -t 8000 "BAT-time : $(battime) - remaining."  
+        notify-send -i /home/will/Pictures/sysicon/battery.png -t 8000 "$(battime)"  
     elif [[ $selected = "cpu_fan" ]]; then 
         notify-send -i /home/will/Pictures/sysicon/fan.png -t 5000 "$(cpu_fan)"
     elif [[ $selected = "cpu_temp" ]]; then 
-        notify-send -i /home/will/Pictures/sysicon/cpu.png -t 5000 "CPU temp: $(cpu_temp) °C."
-    elif [[ $selected = "Now_playing" ]]; then 
-        notify-send -i /home/will/Pictures/sysicon/music.png -t 5000 "$(now_play)"
+        notify-send -i /home/will/Pictures/sysicon/cpu.png -t 5000 "$(cpu_temp)"
+    elif [[ $selected = "BAT_temp" ]]; then 
+        notify-send -i /home/will/Pictures/sysicon/battery.png -t 8000 "$(bat_temp)"  
     elif [[ $selected = "tty_clock" ]]; then 
       st -e zsh -c 'tty-clock -s -c -r -B -D -C 6; zsh'
       elif [[ $selected = "Cancel" ]]; then 

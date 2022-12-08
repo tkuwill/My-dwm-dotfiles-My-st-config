@@ -11,8 +11,11 @@ function urls {
 }
 
 
+function burls {
+    copyq read | cut -c 1-44
+}
 function player {
-    options="Cancel\nPlay-pause\nNext\nPrev\nNow_playing\nOpen with mpv"
+    options="Cancel\nPlay-pause\nNext\nPrev\nNow_playing\nOpen with mpv\nOpen_with_mpv_BiliBili"
     selected=$(echo -e $options | dmenu -i -p "playerctl")
     if [[ $selected = "Play-pause" ]]; then 
         playerctl play-pause    
@@ -24,6 +27,8 @@ function player {
         notify-send -i /home/will/Pictures/sysicon/music.png -t 5000 "$(now_play)"
     elif [[ $selected = "Open with mpv" ]]; then 
 	mpv $(urls)
+    elif [[ $selected = "Open_with_mpv_BiliBili" ]]; then 
+	mpv --referrer="https://www.bilibili.com" $(burls)
     elif [[ $selected = "Cancel" ]]; then 
         return
     fi
