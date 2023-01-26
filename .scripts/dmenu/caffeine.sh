@@ -5,9 +5,9 @@ function nosleep {
     options="Cancel\nWon't sleep\nNormal"
     selected=$(echo -e $options | dmenu -i -p "Screen saver Mode")
     if [[ $selected = "Won't sleep" ]]; then 
-        notify-send -i /home/will/Pictures/sysicon/cup-of-drink.png -t 8000 "Now your screen won't sleep." && xset s off -dpms
+        dunstify -a "changeVolume" -i /home/will/Pictures/sysicon/cup-of-drink.png -t 8000 "Now your screen won't sleep." && xset s off -dpms
     elif [[ $selected = "Normal" ]]; then 
-        notify-send -i /home/will/Pictures/sysicon/sleepy.png -t 8000 "Your screen lacks caffeine." && xset s on +dpms
+        dunstify -a "changeVolume" -i /home/will/Pictures/sysicon/sleepy.png -t 8000 "Your screen lacks caffeine." && xset s on +dpms
     elif [[ $selected = "Cancel" ]]; then 
         return
     fi
